@@ -1,5 +1,5 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,12 +7,10 @@
 #include <unistd.h>
 
 /**
- * struct print - struct for printer functions
+ * struct print - struct for all print functions
  * @type_arg: identifier
  * @f: pointer to a printer functions
- *
- * Description: struct that stores pointers to a
- * printer functions.
+ * Description: struct that stores pointers to a printer functions.
  */
 typedef struct print
 {

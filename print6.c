@@ -1,13 +1,12 @@
 #include "main.h"
-
 /**
- * prinnhex - print number in hex begining with zero
+ * print_hex - prints a decimal in hexadecimal
  * @arguments: input string
  * @buf: buffer pointer
  * @ibuf: index for buffer pointer
  * Return: number of chars printed
  */
-int prinnhex(va_list arguments, char *buf, unsigned int ibuf)
+int print_hex(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int int_input, i, isnegative, count, first_digit;
 	char *hexadecimal, *binary;
@@ -24,8 +23,6 @@ int prinnhex(va_list arguments, char *buf, unsigned int ibuf)
 		int_input = (int_input * -1) - 1;
 		isnegative = 1;
 	}
-	ibuf = handl_buf(buf, '0', ibuf);
-	ibuf = handl_buf(buf, 'x', ibuf);
 	binary = malloc(sizeof(char) * (32 + 1));
 	binary = fill_binary_array(binary, int_input, isnegative, 32);
 	hexadecimal = malloc(sizeof(char) * (8 + 1));
@@ -42,5 +39,46 @@ int prinnhex(va_list arguments, char *buf, unsigned int ibuf)
 	}
 	free(binary);
 	free(hexadecimal);
-	return (count + 2);
+	return (count);
+}
+
+/**
+ * print_int - prints an integer
+ * @arguments: input string
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
+ * Return: number of chars printed.
+ */
+int print_int(va_list arguments, char *buf, unsigned int ibuf)
+{
+	int int_input;
+	unsigned int int_in, i_temp, i, div, isneg;
+
+	int_input = va_arg(arguments, int);
+	isneg = 0;
+	if (int_input < 0)
+	{
+		int_in = int_input * -1;
+		ibuf = handl_buf(buf, '-', ibuf);
+		isneg = 1;
+	}
+	else
+	{
+		int_in = int_input;
+	}
+
+	i_temp = int_in;
+	div = 1;
+
+	while (i_temp > 9)
+	{
+		div *= 10;
+		i_temp /= 10;
+	}
+
+	for (i = 0; div > 0; div /= 10, i++)
+	{
+		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
+	}
+	return (i + isneg);
 }

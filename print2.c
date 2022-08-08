@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * get_print_func - selects the correct function to perform the operation.
- * @s: argument indentifier
- * @index: index for argument indentifier
+ * get_print_func - determine the function for the operation
+ * @s: check the arguement
+ * @index: index to check arguement
  * Return: pointer to a function.
  */
 int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
@@ -35,9 +35,9 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"+ i", prinpint}, {"+ d", prinpint},
 		{" %", print_prg}, {NULL, NULL},
 	};
-	int i = 0, j = 0, first_index;
+	int i = 0, j = 0, index1;
 
-	first_index = index;
+	index1 = index;
 	while (pr[i].type_arg)
 	{
 		if (s[index] == pr[i].type_arg[j])
@@ -51,7 +51,7 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{
 			j = 0;
 			i++;
-			index = first_index;
+			index = index1;
 		}
 	}
 	return (pr[i].f);
