@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef FILE_ MAIN_H
+#define FILE_MAIN_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,4 +56,4 @@ char *fill_oct_array(char *bnr, char *oct);
 char *fill_long_oct_array(char *bnr, char *oct);
 char *fill_short_oct_array(char *bnr, char *oct);
 char *fill_hex_array(char *bnr, char *hex, int isupp, int limit);
-#endif
+#endif /*MAIN_H*/
