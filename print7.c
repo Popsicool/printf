@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * prinlhex - prints a long decimal in hexadecimal.
- * @arguments: input 
+ * @arguments: input
  * @buf: buffer pointer.
  * @ibuf: index for buffer pointer.
  * Return: number of chars printed.
@@ -30,7 +30,7 @@ int prinlhex(va_list arguments, char *buf, unsigned int ibuf)
 	hexa = fill_hex_array(bina, hexa, 0, 16);
 	for (first_ = i = count = 0; hexa[i]; i++)
 	{
-		if (hexa[i] != '0' && first_== 0)
+		if (hexa[i] != '0' && first_ == 0)
 			first_ = 1;
 		if (first_)
 		{

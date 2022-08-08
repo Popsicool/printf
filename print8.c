@@ -97,7 +97,7 @@ int prinnhex(va_list arguments, char *buf, unsigned int ibuf)
 	ibuf = handl_buf(buf, 'x', ibuf);
 	bina = malloc(sizeof(char) * (32 + 1));
 	bina = fill_binary_array(bina, int_input, isneg, 32);
-	hexa= malloc(sizeof(char) * (8 + 1));
+	hexa = malloc(sizeof(char) * (8 + 1));
 	hexa = fill_hex_array(bina, hexa, 0, 8);
 	for (first_ = i = count = 0; hexa[i]; i++)
 	{
